@@ -1,3 +1,6 @@
 venv/
+.DS_Store
 *pyc
-*.sqlite
+*.sqlite3
+.vscode
+db.sqlite3

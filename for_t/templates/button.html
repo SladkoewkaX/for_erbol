@@ -1,0 +1,6 @@
+<h1>{{message}}</h1>
+<form method='POST'>
+{% csrf_token %}
+{{form}}
+  <button type='submit'>Запомнить меня</button>
+</form>

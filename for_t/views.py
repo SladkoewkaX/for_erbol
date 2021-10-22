@@ -11,8 +11,8 @@ def registr(request):
     if request.method == 'POST' and form.is_valid():
         message = 'Операция успешна выполнена'
         form.save()
-        return render(request, 'hello.html', {'form': form, 'message':message})
-    return render(request, 'hello.html', {'form': form, 'message':message})
+        return render(request, 'button.html', {'form': form, 'message':message})
+    return render(request, 'button.html', {'form': form, 'message':message})
 
 def spisok(request):
     reg = Registration.objects.all()

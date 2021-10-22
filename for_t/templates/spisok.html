@@ -1,0 +1,6 @@
+<form>
+{% for i in reg %}
+<h1><a href="{% url 'spisok' %}"><test/a></h1>
+    <li>{{ i.name }} {{ i.surname }}</li>
+{% endfor %}
+</form>

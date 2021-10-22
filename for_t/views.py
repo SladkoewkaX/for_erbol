@@ -1,12 +1,13 @@
-from django.shortcuts import get_object_or_404, render 
+from django.http import request
+from django.shortcuts import redirect, render 
 from .models import Registration
-from .forms import RegForm
+from .forms import RegistrationForm
 
-def mess(request):
+def slovo(request):
     return render(request, 'hello.html')
 
-def registr(request):
-    form = RegForm(request.POST or None)
+def registration(request):
+    form = RegistrationForm(request.POST or None)
     message = 'Заполните поля'
     if request.method == 'POST' and form.is_valid():
         message = 'Операция успешна выполнена'
@@ -18,6 +19,8 @@ def spisok(request):
     reg = Registration.objects.all()
     return render(request, 'spisok.html', {'reg':reg})
 
-def get_list(request, pk):
+def get_detail(request,pk):
     details = Registration.objects.filter(pk=pk)
-    return render(request, 'details.html', {'details':details})
+    # if request.method == 'GET':
+    #     return redirect('details.html', {'details':details})
+    return render (request,'details.html', {'details':details})

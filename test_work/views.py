@@ -1,5 +1,5 @@
 from django.http import request
-from django.shortcuts import redirect, render 
+from django.shortcuts import  render 
 from .models import Registration
 from .forms import RegistrationForm
 
@@ -15,12 +15,10 @@ def registration(request):
         return render(request, 'button.html', {'form': form, 'message':message})
     return render(request, 'button.html', {'form': form, 'message':message})
 
-def spisok(request):
+def user_list(request):
     reg = Registration.objects.all()
     return render(request, 'spisok.html', {'reg':reg})
 
-def get_detail(request,pk):
+def detail(request,pk):
     details = Registration.objects.filter(pk=pk)
-    # if request.method == 'GET':
-    #     return redirect('details.html', {'details':details})
     return render (request,'details.html', {'details':details})
